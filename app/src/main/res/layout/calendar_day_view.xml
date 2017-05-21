@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/calendar_view_cell_height">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="?attr/selectableItemBackground"
+        android:orientation="vertical"
+        android:duplicateParentState="true">
+
+        <TextView
+            android:id="@+id/month_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/calendar_text_size"
+            android:textColor="@color/calendar_text_color"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/selected_day_circle"
+                android:layout_width="@dimen/calendar_selected_day_circle_size"
+                android:layout_height="@dimen/calendar_selected_day_circle_size"
+                android:background="@drawable/calendar_selected_day_circle"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/day_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="@dimen/calendar_text_size"
+                android:textColor="@color/calendar_day_text_color_selector"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+</FrameLayout>

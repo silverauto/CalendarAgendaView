@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/agenda_view_event_height"
+    android:paddingLeft="@dimen/agenda_view_horizontal_inset"
+    android:paddingRight="@dimen/agenda_view_horizontal_inset"
+    android:paddingTop="@dimen/agenda_view_horizontal_inset"
+    android:background="@android:color/white">
+    <TextView
+        android:id="@+id/eventTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/calendar_event_time_text_color_selector"/>
+    <TextView
+        android:id="@+id/eventDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/calendar_text_color"
+        android:layout_below="@+id/eventTime" />
+    <TextView
+        android:id="@+id/eventTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/agenda_event_text_size"
+        android:textColor="@android:color/black"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/agenda_event_title_margin_left"/>
+</RelativeLayout>

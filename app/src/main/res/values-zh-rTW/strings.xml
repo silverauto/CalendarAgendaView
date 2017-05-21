@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="no_event">無活動</string>
+    <string name="duration_hours_format">%1$d 小時</string>
+    <string name="duration_hours_and_minutes_format">%1$d 小時又 %2$d 分鐘</string>
+    <string name="duration_minutes_format">%1$d 分鐘</string>
+</resources>

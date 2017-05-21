@@ -1,0 +1,16 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="agenda_view_horizontal_inset">16dp</dimen>
+    <dimen name="agenda_event_title_margin_left">120dp</dimen>
+    <dimen name="agenda_view_header_height">32dp</dimen>
+    <dimen name="agenda_view_event_height">70dp</dimen>
+    <dimen name="agenda_divider_height">1dp</dimen>
+    <dimen name="agenda_event_text_size">16dp</dimen>
+
+    <dimen name="calendar_view_header_height">32dp</dimen>
+    <dimen name="calendar_view_cell_height">52dp</dimen>
+    <dimen name="calendar_text_size">14dp</dimen>
+    <dimen name="calendar_selected_day_circle_size">32dp</dimen>
+</resources>

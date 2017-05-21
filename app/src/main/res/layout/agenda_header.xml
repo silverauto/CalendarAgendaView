@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/agenda_view_header_height"
+    android:paddingLeft="@dimen/agenda_view_horizontal_inset"
+    android:gravity="center_vertical"
+    android:textColor="@color/calendar_text_color"
+    android:background="@drawable/agenda_today_event_background"/>
