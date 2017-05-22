@@ -11,8 +11,7 @@ public final class AnimationUtils {
         if(targetView == null || !targetView.isAttachedToWindow()) {
             return;
         }
-
-        // Older versions of android (pre API 21) cancel animations for views with a height of 0.
+        
         targetView.getLayoutParams().height = startHeight;
         targetView.setVisibility(View.VISIBLE);
         Animation animation = new Animation()
