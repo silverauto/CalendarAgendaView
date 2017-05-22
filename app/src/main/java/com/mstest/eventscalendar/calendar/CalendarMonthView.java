@@ -3,11 +3,14 @@ package com.mstest.eventscalendar.calendar;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
+import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
 import com.mstest.eventscalendar.ui.DividerItemDecorationItem;
 import com.mstest.eventscalendar.ui.OnDateChangedListener;
 import com.mstest.eventscalendar.ui.OnUserTouchScrollListener;
@@ -75,6 +78,8 @@ public class CalendarMonthView extends RecyclerView {
         addItemDecoration(new DividerItemDecorationItem(getContext()));
         addOnItemTouchListener(mGestureListener);
         setItemAnimator(null);
+        LinearSnapHelper linearSnapHelper = new GravitySnapHelper(Gravity.TOP);
+        linearSnapHelper.attachToRecyclerView(this);
         this.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
             @Override
             public boolean onPreDraw() {
