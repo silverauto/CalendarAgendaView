@@ -9,6 +9,8 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
 
 import com.github.rubensousa.gravitysnaphelper.GravitySnapHelper;
 import com.mstest.eventscalendar.ui.DividerItemDecorationItem;
@@ -17,6 +19,8 @@ import com.mstest.eventscalendar.ui.OnUserTouchScrollListener;
 import com.mstest.eventscalendar.ui.RecyclerViewGestureListener;
 import com.mstest.eventscalendar.utils.CalendarUtils;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.Calendar;
 
 /**
@@ -24,6 +28,7 @@ import java.util.Calendar;
  */
 
 public class CalendarMonthView extends RecyclerView {
+    private final static int SNAP_TO_TARGET_VIEW_DURATION = 700;
     private CalendarMonthViewAdapter mAdapter;
     private GridLayoutManager mLayoutManager;
     private OnDateChangedListener mOnDateChangedListener;
@@ -144,6 +149,21 @@ public class CalendarMonthView extends RecyclerView {
                 mOnDayLoadedListener.onDayLoaded(lastVisibleDay);
                 mLastLoadedDay = lastVisibleDay;
             }
+        }
+    }
+
+    @Override
+    public void smoothScrollBy(int dx, int dy) {
+        try {
+            // make the snapping behavior more smooth in the end of flinging
+            Field flingerField = Class.forName("android.support.v7.widget.RecyclerView").getDeclaredField("mViewFlinger");
+            flingerField.setAccessible(true);
+            Runnable flinger  = (Runnable) flingerField.get(this);
+            Method smoothScroll = Class.forName("android.support.v7.widget.RecyclerView$ViewFlinger").getDeclaredMethod("smoothScrollBy", int.class, int.class, int.class, Interpolator.class);
+            smoothScroll.setAccessible(true);
+            smoothScroll.invoke(flinger, dx, dy, SNAP_TO_TARGET_VIEW_DURATION, new DecelerateInterpolator());
+        } catch (Exception e) {
+            super.smoothScrollBy(dx, dy);
         }
     }
 }
